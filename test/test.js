@@ -2,11 +2,17 @@
 
 // MODULES //
 
-var test = require( 'tape' );
-var incrspace = require( 'compute-incrspace' );
+var tape = require( 'tape' );
 var abs = require( 'math-abs' );
 var ln = require( 'math-ln' );
+var pow = require( 'math-power' );
 var gammaln = require( './../lib' );
+
+
+// CONSTANTS //
+
+var PINF = require( 'const-pinf-float64' ),
+	NINF = require( 'const-ninf-float64' );
 
 
 // FIXTURES //
@@ -19,18 +25,46 @@ var expected2 = require( './fixtures/expected2.json' );
 
 // TESTS //
 
-test( 'main export is a function', function test( t ) {
+tape( 'main export is a function', function test( t ) {
 	t.ok( typeof gammaln === 'function', 'main export is a function' );
 	t.end();
 });
 
-test( 'if provided `NaN`, the function returns `NaN`', function test( t ) {
+tape( 'if provided `NaN`, the function returns `NaN`', function test( t ) {
 	var v = gammaln( NaN );
 	t.ok( v !== v, 'returns NaN when provided a NaN' );
 	t.end();
 });
 
-test( 'the function evaluates the natural logarithm of the gamma function (positive integers)', function test( t ) {
+tape( 'the function returns infinity when provided infinity', function test( t ) {
+	var v = gammaln( PINF );
+	t.ok( v === PINF, 'returns +Inf when provided +Inf' );
+	v = gammaln( NINF );
+	t.ok( v === NINF, 'returns -Inf when provided -Inf' );
+	t.end();
+});
+
+tape( 'the function returns +Infinity when provided zero' , function test( t ) {
+	var v = gammaln( 0 );
+	t.ok( v === PINF, 'returns +Inf when provided 0' );
+	t.end();
+});
+
+tape( 'the function returns +Infinity for x smaller than -2^52' , function test( t ) {
+	var v = gammaln(  -pow( 2, 53 ) );
+	t.ok( v === PINF, 'returns +Inf when provided 2^53' );
+	t.end();
+});
+
+
+tape( 'the function returns -ln(x) for very small x' , function test( t ) {
+	var x = 2e-90;
+	var v = gammaln( x );
+	t.ok( v === -ln( x ) );
+	t.end();
+});
+
+tape( 'the function evaluates the natural logarithm of the gamma function (positive integers)', function test( t ) {
 	var delta;
 	var tol;
 	var v;
@@ -45,7 +79,7 @@ test( 'the function evaluates the natural logarithm of the gamma function (posit
 	t.end();
 });
 
-test( 'the function evaluates the natural logarithm of the gamma function (decimal values)', function test( t ) {
+tape( 'the function evaluates the natural logarithm of the gamma function (decimal values)', function test( t ) {
 	var delta;
 	var tol;
 	var v;
@@ -60,9 +94,22 @@ test( 'the function evaluates the natural logarithm of the gamma function (decim
 	t.end();
 });
 
-test( 'if provided a positive integer, the function returns the natural logarithm of the factorial of (n-1)', function test( t ) {
+tape( 'the function evaluates the natural logarithm of the gamma function for x > 2^58', function test( t ) {
+	var x = pow( 2, 59 );
+	var v = gammaln( x );
+	t.ok( v === x * ( ln(x) - 1 ), 'returns x*(ln(x)-1) for x>2^58' );
+	t.end();
+});
+
+tape( 'if provided a positive integer, the function returns the natural logarithm of the factorial of (n-1)', function test( t ) {
 	t.equal( gammaln( 4 ), ln(6), 'returns ln(6)' );
 	t.equal( gammaln( 5 ), ln(24), 'returns ln(24)' );
 	t.equal( gammaln( 6 ), ln(120), 'returns ln(120)' );
+	t.end();
+});
+
+tape( 'returns +Infinity for x=-2^51', function test( t ) {
+	var v = gammaln( -pow( 2, 51 ) );
+	t.ok( v === PINF, 'returns +Infinity when provided x=-2^51' );
 	t.end();
 });
