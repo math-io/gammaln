@@ -39,6 +39,9 @@
     "factorial",
     "log-scale",
     "logarithm",
+    "log",
+    "ln",
+    "natural",
     "scalar",
     "number"
   ],
