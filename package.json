@@ -61,7 +61,6 @@
   "devDependencies": {
     "browserify": "12.x.x",
     "codecov": "1.x.x",
-    "compute-incrspace": "^1.0.2",
     "compute-linspace": "^1.0.0",
     "istanbul": "^0.4.1",
     "jshint": "2.x.x",
