@@ -4,7 +4,7 @@
 
 var tape = require( 'tape' );
 var pow = require( 'math-power' );
-var sinPi = require( './../lib/sinPi.js' );
+var sinPi = require( './../lib/sinpi.js' );
 
 
 // TESTS //
