@@ -11,8 +11,8 @@ var gammaln = require( './../lib' );
 
 // CONSTANTS //
 
-var PINF = require( 'const-pinf-float64' ),
-	NINF = require( 'const-ninf-float64' );
+var PINF = require( 'const-pinf-float64' );
+var NINF = require( 'const-ninf-float64' );
 
 
 // FIXTURES //
@@ -36,7 +36,7 @@ tape( 'if provided `NaN`, the function returns `NaN`', function test( t ) {
 	t.end();
 });
 
-tape( 'the function returns infinity when provided infinity', function test( t ) {
+tape( 'the function returns `infinity` when provided `infinity`', function test( t ) {
 	var v = gammaln( PINF );
 	t.ok( v === PINF, 'returns +Inf when provided +Inf' );
 	v = gammaln( NINF );
@@ -44,20 +44,20 @@ tape( 'the function returns infinity when provided infinity', function test( t )
 	t.end();
 });
 
-tape( 'the function returns +Infinity when provided zero' , function test( t ) {
+tape( 'the function returns `+infinity` when provided `0`' , function test( t ) {
 	var v = gammaln( 0 );
 	t.ok( v === PINF, 'returns +Inf when provided 0' );
 	t.end();
 });
 
-tape( 'the function returns +Infinity for x smaller than -2^52' , function test( t ) {
+tape( 'the function returns `+infinity` for x smaller than `-2^52`' , function test( t ) {
 	var v = gammaln(  -pow( 2, 53 ) );
 	t.ok( v === PINF, 'returns +Inf when provided 2^53' );
 	t.end();
 });
 
 
-tape( 'the function returns -ln(x) for very small x' , function test( t ) {
+tape( 'the function returns `-ln(x)` for very small x' , function test( t ) {
 	var x = 2e-90;
 	var v = gammaln( x );
 	t.ok( v === -ln( x ) );
@@ -108,7 +108,7 @@ tape( 'if provided a positive integer, the function returns the natural logarith
 	t.end();
 });
 
-tape( 'returns +Infinity for x=-2^51', function test( t ) {
+tape( 'returns `+infinity` for `x=-2^51`', function test( t ) {
 	var v = gammaln( -pow( 2, 51 ) );
 	t.ok( v === PINF, 'returns +Infinity when provided x=-2^51' );
 	t.end();
