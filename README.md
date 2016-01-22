@@ -2,7 +2,7 @@ gammaln
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][build-image]][build-url] [![Coverage Status][coverage-image]][coverage-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Natural logarithm of the [gamma][gamma-function] function.
+> [Natural logarithm][ln] of the [gamma][gamma-function] function.
 
 
 ## Installation
@@ -21,7 +21,7 @@ var gammaln = require( 'math-gammaln' );
 
 #### gammaln( x )
 
-Evaluates the natural logarithm of the [gamma function][gamma-function].
+Evaluates the [natural logarithm][ln] of the [gamma function][gamma-function].
 
 ``` javascript
 var val = gammaln( 2 );
@@ -141,8 +141,5 @@ Copyright &copy; 2016. The [Compute.io][compute-io] Authors.
 [testling]: https://ci.testling.com
 
 [compute-io]: https://github.com/compute-io/
-[gamma-function]: https://en.wikipedia.org/wiki/Gamma_function
-[factorial-function]: https://github.com/math-io/factorial
-[real]: https://en.wikipedia.org/wiki/Real_number
-[complex]: https://en.wikipedia.org/wiki/Complex_number
-[euler-mascheroni-constant]: https://github.com/compute-io/const-eulergamma
+[gamma-function]: https://github.com/math-io/gamma
+[ln]: https://github.com/math-io/ln
