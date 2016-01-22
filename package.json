@@ -55,7 +55,6 @@
     "math-cos": "^1.0.0",
     "math-floor": "^1.0.1",
     "math-ln": "^1.0.0",
-    "math-power": "^1.0.0",
     "math-sin": "^1.0.0",
     "math-trunc": "^1.0.0"
   },
