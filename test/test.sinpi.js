@@ -37,3 +37,8 @@ tape( 'if provided `x < 2^52`, the function returns `0`', function test( t ) {
 	t.ok( v === 0, 'returns 0 when provided x=2^51' );
 	t.end();
 });
+
+tape( 'TODO: add test cases for normal numbers', function test( t ) {
+	t.ok( false );
+	t.end();
+});
