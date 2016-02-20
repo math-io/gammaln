@@ -57,8 +57,7 @@
     "const-pi": "^1.0.3",
     "const-pinf-float64": "^1.0.0",
     "math-abs": "^1.0.2",
-    "math-ln": "^1.0.0",
-    "math-trunc": "^1.0.0"
+    "math-ln": "^1.0.0"
   },
   "devDependencies": {
     "browserify": "13.x.x",
