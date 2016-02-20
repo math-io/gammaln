@@ -1,6 +1,6 @@
 {
   "name": "math-gammaln",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Natural logarithm of the gamma function.",
   "author": {
     "name": "Philipp Burckhardt",
