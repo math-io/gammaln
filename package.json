@@ -61,7 +61,7 @@
     "math-trunc": "^1.0.0"
   },
   "devDependencies": {
-    "browserify": "12.x.x",
+    "browserify": "13.x.x",
     "codecov": "1.x.x",
     "compute-linspace": "^1.0.0",
     "istanbul": "^0.4.1",
