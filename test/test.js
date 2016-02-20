@@ -73,7 +73,7 @@ tape( 'the function evaluates the natural logarithm of the gamma function (posit
 	for ( i = 0; i < data1.length; i++ ) {
 		v = gammaln( data1[ i ] );
 		delta = abs( v - expected1[ i ] );
-		tol = 2.75e-12 * Math.max( 1, abs( v ), abs( expected1[ i ] ) );
+		tol = 2.75e-14 * Math.max( 1, abs( v ), abs( expected1[ i ] ) );
 		t.ok( delta <= tol, 'within tolerance. x: ' + data1[ i ] + '. Value: ' + v + '. Expected: ' + expected1[ i ] + '. Tolerance: ' + tol + '.' );
 	}
 	t.end();
@@ -88,7 +88,7 @@ tape( 'the function evaluates the natural logarithm of the gamma function (decim
 	for ( i = 0; i < data2.length; i++ ) {
 		v = gammaln( data2[ i ] );
 		delta = abs( v - expected2[ i ] );
-		tol = 2.75e-12 * Math.max( 1, abs( v ), abs( expected2[ i ] ) );
+		tol = 2.5e-12 * Math.max( 1, abs( v ), abs( expected2[ i ] ) );
 		t.ok( delta <= tol, 'within tolerance. x: ' + data2[ i ] + '. Value: ' + v + '. Expected: ' + expected2[ i ] + '. Tolerance: ' + tol + '.' );
 	}
 	t.end();
