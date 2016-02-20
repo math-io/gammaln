@@ -10,6 +10,10 @@
     {
       "name": "Philipp Burckhardt",
       "email": "pburckhardt@outlook.com"
+    },
+    {
+      "name": "Athan Reines",
+      "email": "kgryte@gmail.com"
     }
   ],
   "scripts": {
@@ -37,8 +41,11 @@
     "special function",
     "gamma",
     "factorial",
-    "log-scale",
+    "natural",
     "logarithm",
+    "log",
+    "ln",
+    "lgamma",
     "scalar",
     "number"
   ],
@@ -46,27 +53,23 @@
     "url": "https://github.com/math-io/gammaln/issues"
   },
   "dependencies": {
+    "const-ninf-float64": "^1.0.0",
     "const-pi": "^1.0.3",
     "const-pinf-float64": "^1.0.0",
     "math-abs": "^1.0.2",
-    "math-cos": "^1.0.0",
-    "math-float64-bits": "^1.0.0",
-    "math-floor": "^1.0.1",
+    "math-evalpoly": "^1.1.0",
     "math-ln": "^1.0.0",
-    "math-power": "^1.0.0",
-    "math-sin": "^1.0.0",
-    "math-trunc": "^1.0.0",
-    "validate.io-finite": "^1.0.0",
-    "validate.io-nan": "^1.0.3"
+    "math-sinpi": "^1.0.0",
+    "math-truncate": "^1.0.0"
   },
   "devDependencies": {
-    "browserify": "12.x.x",
+    "browserify": "13.x.x",
     "codecov": "1.x.x",
-    "compute-incrspace": "^1.0.2",
     "compute-linspace": "^1.0.0",
     "istanbul": "^0.4.1",
     "jshint": "2.x.x",
     "jshint-stylish": "2.x.x",
+    "math-power": "^1.0.0",
     "tap-spec": "4.x.x",
     "tape": "4.x.x",
     "testling": "1.x.x"
