@@ -26,7 +26,7 @@ var expected2 = require( './fixtures/expected2.json' );
 // TESTS //
 
 tape( 'main export is a function', function test( t ) {
-	t.ok( typeof gammaln === 'function', 'main export is a function' );
+	t.equal( typeof gammaln, 'function', 'main export is a function' );
 	t.end();
 });
 
