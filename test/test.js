@@ -38,29 +38,35 @@ tape( 'if provided `NaN`, the function returns `NaN`', function test( t ) {
 
 tape( 'the function returns `infinity` when provided `infinity`', function test( t ) {
 	var v = gammaln( PINF );
-	t.ok( v === PINF, 'returns +Inf when provided +Inf' );
+	t.equal( v, PINF, 'returns +Inf when provided +Inf' );
+
 	v = gammaln( NINF );
-	t.ok( v === NINF, 'returns -Inf when provided -Inf' );
+	t.equal( v, NINF, 'returns -Inf when provided -Inf' );
+
 	t.end();
 });
 
 tape( 'the function returns `+infinity` when provided `0`' , function test( t ) {
 	var v = gammaln( 0 );
-	t.ok( v === PINF, 'returns +Inf when provided 0' );
+	t.equal( v, PINF, 'returns +Inf when provided 0' );
 	t.end();
 });
 
 tape( 'the function returns `+infinity` for x smaller than `-2^52`' , function test( t ) {
 	var v = gammaln(  -pow( 2, 53 ) );
-	t.ok( v === PINF, 'returns +Inf when provided 2^53' );
+	t.equal( v, PINF, 'returns +Inf when provided 2^53' );
 	t.end();
 });
 
 
 tape( 'the function returns `-ln(x)` for very small x' , function test( t ) {
-	var x = 2e-90;
-	var v = gammaln( x );
-	t.ok( v === -ln( x ) );
+	var x;
+	var v;
+
+	x = 2e-90;
+	v = gammaln( x );
+	t.equal( v, -ln( x ), 'equals -ln(x)' );
+
 	t.end();
 });
 
@@ -95,9 +101,13 @@ tape( 'the function evaluates the natural logarithm of the gamma function (decim
 });
 
 tape( 'the function evaluates the natural logarithm of the gamma function for x > 2^58', function test( t ) {
-	var x = pow( 2, 59 );
-	var v = gammaln( x );
-	t.ok( v === x * ( ln(x) - 1 ), 'returns x*(ln(x)-1) for x>2^58' );
+	var x;
+	var v;
+
+	x = pow( 2, 59 );
+	v = gammaln( x );
+	t.equal( v, x * (ln(x)-1), 'returns x*(ln(x)-1) for x>2^58' );
+
 	t.end();
 });
 
@@ -110,6 +120,6 @@ tape( 'if provided a positive integer, the function returns the natural logarith
 
 tape( 'returns `+infinity` for `x=-2^51`', function test( t ) {
 	var v = gammaln( -pow( 2, 51 ) );
-	t.ok( v === PINF, 'returns +Infinity when provided x=-2^51' );
+	t.equal( v, PINF, 'returns +Infinity when provided x=-2^51' );
 	t.end();
 });
